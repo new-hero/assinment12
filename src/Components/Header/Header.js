@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -10,12 +10,14 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Link to='/' className='text-decoration-none text-light p-4' >Home</Link>
-                        <Link to='/protfolio' className='text-decoration-none text-light p-4'>Protfolio</Link>
+                        <Link to='/' className='text-decoration-none text-light p-3' >Home</Link>
+                        <Link to='/protfolio' className='text-decoration-none text-light p-3'>Protfolio</Link>
                     </Nav>
                     <Nav>
-                    <Link to='/' className='text-decoration-none text-light p-4' >Home</Link>
-                        <Link to='/protfolio' className='text-decoration-none text-light p-4'>Protfolio</Link>
+                     <Button>Login</Button>
+                     <Button>LogOut</Button>
+                    <Link to='/' className='text-decoration-none text-light p-3' >Home</Link>
+                        <Link to='/protfolio' className='text-decoration-none text-light p-3'>Protfolio</Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
