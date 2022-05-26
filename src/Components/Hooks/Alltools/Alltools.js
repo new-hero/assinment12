@@ -86,3 +86,11 @@ const Alltools = () => {
     //         tools.map(tool=> <Tool tool={tool} key={tool._id}></Tool>)
     //     }            
     // </div>
+
+    // {
+    //     "img":"https://cdn.vox-cdn.com/thumbor/vyv2NP627YwPyjG9lf4kFcx_yfg=/0x0:3600x2329/920x0/filters:focal(0x0:3600x2329):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22990299/Hammer_61_ycYjtYGL._AC_SL1500_.jpg",
+    //     "name": "Hammer",
+    //     "description": "Essential Tool",
+    //     "quantity":500, 
+    //     "price":150
+    // }
