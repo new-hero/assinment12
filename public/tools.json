@@ -1,0 +1,66 @@
+[
+     {
+        "_id":1,
+        "img":"https://cdn.vox-cdn.com/thumbor/vyv2NP627YwPyjG9lf4kFcx_yfg=/0x0:3600x2329/920x0/filters:focal(0x0:3600x2329):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22990299/Hammer_61_ycYjtYGL._AC_SL1500_.jpg",
+        "name": "Hammer",
+        "description": "Essential Tool",
+        "quantity":500, 
+        "price":150
+    },
+     {
+        "_id":2,
+        "img":"https://cdn.vox-cdn.com/thumbor/aPyGkChaw-nfvUcubhYFkReGuW0=/0x0:3600x2329/920x0/filters:focal(0x0:3600x2329):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22990326/Wrench_710fbEkpBwL._AC_SL1500_.jpg",
+        "name": "Adjustable Wrench",
+        "description": "Essential Tool",
+        "quantity":500, 
+        "price":250
+    },
+     {
+        "_id":3,
+        "img":"https://cdn.vox-cdn.com/thumbor/Y7w2jpplW4D-2bqbO0bocdPFbbE=/0x0:3600x2329/920x0/filters:focal(0x0:3600x2329):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22990322/TapeMeasure_FMHT36335S_3.jpg",
+        "name": "Measureing Tape",
+        "description": "Essential Tool",
+        "quantity":500, 
+        "price":220
+    },
+     {
+        "_id":4,
+        "img":"https://cdn.vox-cdn.com/thumbor/4XqI7TIQjO7kuV5lbKrY6SOyd1I=/0x0:3600x2329/920x0/filters:focal(0x0:3600x2329):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22990297/DriverSawSet.jpg",
+        "name": "Drill/Driver and Circular Saw",
+        "description": "Essential Tool",
+        "quantity":500, 
+        "price":2000
+    },
+     {
+        "_id":5,
+        "img":"https://cdn.vox-cdn.com/thumbor/dShKOVO5ismQ5aMY7-ZvhrzDFiQ=/0x0:3600x2329/920x0/filters:focal(0x0:3600x2329):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22990303/Level_41OkOmKtMFL._AC_SL1000_.jpg",
+        "name": "Level",
+        "description": "Essential Tool",
+        "quantity":500, 
+        "price":400
+    },
+     {
+        "_id":6,
+        "img":"https://cdn.vox-cdn.com/thumbor/8VbBTAIvoNjpXgaAb3nB_oQgRQE=/0x0:3600x2329/920x0/filters:focal(0x0:3600x2329):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22990313/Saw_7169P7aAMNL._AC_SL1500_.jpg",
+        "name": "HandSaw",
+        "description": "Essential Tool",
+        "quantity":500, 
+        "price":200
+    },
+     {
+        "_id":7,
+        "img":"https://cdn.vox-cdn.com/thumbor/8VbBTAIvoNjpXgaAb3nB_oQgRQE=/0x0:3600x2329/920x0/filters:focal(0x0:3600x2329):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22990313/Saw_7169P7aAMNL._AC_SL1500_.jpg",
+        "name": "HandSaw",
+        "description": "Essential Tool",
+        "quantity":500, 
+        "price":200
+    },
+     {
+        "_id":8,
+        "img":"https://cdn.vox-cdn.com/thumbor/yFUCa4f-7YfIFUxS-Pl2zHFf4S4=/0x0:3600x2329/920x0/filters:focal(0x0:3600x2329):format(webp):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22990324/UtilityKnife_61taTldxQ4L._AC_SL1500_.jpg",
+        "name": "Utility Knife",
+        "description": "Essential Tool",
+        "quantity":500, 
+        "price":250
+    }
+]

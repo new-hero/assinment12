@@ -32,6 +32,7 @@ if(loading){
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/protfolio' element={<Protfolio></Protfolio>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/protfolio' element={<Protfolio></Protfolio>}></Route>
       <Route path='/purchase' element={<Private>
           <Purchase></Purchase>
         </Private>}></Route>
