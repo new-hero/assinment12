@@ -1,9 +1,10 @@
 import React from 'react';
+import notf from '../../images/notf.png';
 
 const Notfound = () => {
     return (
         <div>
-            <h1 className='text-danger text-center my-5'>Page not found</h1>
+            <img src={notf} alt='not found' className='img-fluid'/>
         </div>
     );
 };
