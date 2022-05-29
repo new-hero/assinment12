@@ -23,16 +23,15 @@ const Header = () => {
                         <Nav className="me-auto">
                             <Nav.Link className='text-light' as={Link} to="/">Home</Nav.Link>
                             <Nav.Link className='text-light' as={Link} to="/blogs">Blogs</Nav.Link>
-                            <Nav.Link className='text-light' as={Link} to="/tools">Tools</Nav.Link>
+                            <Nav.Link className='text-light' as={Link} to="/protfolio">Protfolio</Nav.Link>
+                            <Nav.Link className='text-light' as={Link} to="/manage">Manage Tools</Nav.Link>
                         </Nav>
 
                         <Nav className="ms-auto">
                             {
                                 user ? <Nav>
                                     <Nav.Link className='text-light' as={Link} to="/dashbord">Dashbord</Nav.Link>
-                                    <Nav.Link className='text-light' as={Link} to="/dashbord/review"> Add A Review</Nav.Link>
-                                    <Nav.Link className='text-light' as={Link} to="/dashbord/profile">My Profile</Nav.Link>
-                                   
+
                                      <Button onClick={handlelogout}>Sign out</Button>
                                      <span>{user.displayName}</span>
                                 </Nav> : <Nav.Link className='text-light' as={Link} to="/login">Login</Nav.Link>

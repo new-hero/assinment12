@@ -1,25 +1,74 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Toast } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
 
 
 const Purchase = () => {
-    const [user, loading, error] = useAuthState(auth)
+    const naviget=useNavigate();
+    const {id}=useParams();
+    const [tool, setTool] = useState({});
+    useEffect(() => {
+        const url = `http://localhost:5000/tools/${id}`;
+        console.log(tool)
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setTool(data))
+    },[tool, id]);
 
-    const [address, setAddress] = useState('');
-    const [phone, setPhone] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [currentTool, setCurrentTool] = useState({});
+    // const {_id, name, img, description, quantity, price } = tool;
+
+
+    const [user, loading, error] = useAuthState(auth);
+    const userName=user?.displayName;
+    const userEmail=user?.email;
+    const [address, setAddress] = useState(' ');
+    const [phone, setPhone] = useState(' ');
+    const [giveQantity, setGiveQuantity] = useState(" ");
+
+    if(giveQantity<0){
+        alert("Negative value not accept");
+        setGiveQuantity(" ")
+        return;
+         
+    }
+
+
     // useEffect()
 
     if (loading) {
         return <Loading></Loading>
     }
-    const availableQuantity = quantity < currentTool.quantity;
+    const availableQuantity = giveQantity <= tool.quantity;
 
-    const handlePurchase = () => {
+
+
+    const handlePurchase = event => {
+        event.preventDefault();
+    const purchaseUser= { userName, userEmail, address, phone, giveQantity, status: 'Pending' }
+
+
+        
+        fetch(`http://localhost:5000/tools/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(purchaseUser)
+        })
+            .then(res => res.json())
+            .then(data => {
+            toast('Success full Purchse')    
+            })
+            event.target.reset();
+            
+
+            
+
+
     }
 
     return (
@@ -29,17 +78,17 @@ const Purchase = () => {
             <Form onSubmit={handlePurchase}>
                 <Form.Group className="my-3" >
                     <Form.Label>Quantity</Form.Label>
-                    <Form.Control type="number"  className="text-center" onChange={(e) => setQuantity(e.target.value)} placeholder="Quantity" required />
+                    <Form.Control type="text"  className="text-center" onBlur={(e) => setGiveQuantity(e.target.value)} placeholder="Quantity" required />
                 </Form.Group>
 
 
                 <Form.Group className="mb-3" disabled>
                     <Form.Label> Name</Form.Label>
-                    <Form.Control type="text"  className="text-center" value={user?.displayName} required />
+                    <Form.Control type="text"  className="text-center" value={user?.displayName}/>
                 </Form.Group>
                 <Form.Group className="mb-3" disabled>
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email"  className="text-center" value={user?.email} required />
+                    <Form.Control type="email"  className="text-center" value={user?.email} />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Address</Form.Label>
@@ -47,12 +96,12 @@ const Purchase = () => {
                 </Form.Group>
                 <Form.Group className="mb-3" >
                     <Form.Label>Mobile Number</Form.Label>
-                    <Form.Control type="number"  className="text-center" onChange={(e) => setPhone(e.target.value)} placeholder="Mobile Number" required />
+                    <Form.Control type="text"  className="text-center" onChange={(e) => setPhone(e.target.value)} placeholder="Mobile Number" required />
                 </Form.Group>
 
                 {
                     availableQuantity?
-                    <Button variant="primary" type="submit" >
+                    <Button variant="danger" type="submit" >
                         Purchase Now
                     </Button>: <Button variant="primary" type="submit" disabled >
                         Purchase Now

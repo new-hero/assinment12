@@ -6,7 +6,7 @@ const Tool = (props) => {
     const {_id, name, img, description, quantity, price } = props.tool;
     const naviget= useNavigate();
     const handlePurchase=(id)=>{
-        naviget("/purchase")
+        naviget(`/tools/${id}`)
     }
     return (
 
