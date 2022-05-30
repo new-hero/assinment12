@@ -1,5 +1,5 @@
 import auth from '../../firebase.init';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,9 +7,20 @@ import { signOut } from 'firebase/auth';
 
 const Header = () => {
     const [user] = useAuthState(auth);
+
+    const [alluser, setAlluser] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/users')
+            .then(res => res.json())
+            .then(data => setAlluser(data))
+    }, [alluser])
+    const currentUser= alluser.find(u=> u.email === user?.email)
+    const adminUser=currentUser?.role;
+
     const navigate = useNavigate();
     const handlelogout=()=>{
         signOut(auth);
+        localStorage.removeItem('accessToken')
         navigate('/')
     }
     return (
@@ -24,7 +35,7 @@ const Header = () => {
                             <Nav.Link className='text-light' as={Link} to="/">Home</Nav.Link>
                             <Nav.Link className='text-light' as={Link} to="/blogs">Blogs</Nav.Link>
                             <Nav.Link className='text-light' as={Link} to="/protfolio">Protfolio</Nav.Link>
-                            <Nav.Link className='text-light' as={Link} to="/manage">Manage Tools</Nav.Link>
+                            {adminUser === 'admin' && <Nav.Link className='text-light' as={Link} to="/manage">Manage Tools</Nav.Link>}
                         </Nav>
 
                         <Nav className="ms-auto">

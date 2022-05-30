@@ -6,6 +6,7 @@ import Googlelogin from '../../Components/Googlelogin/Googlogin';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import Loading from '../Loading/Loading';
+import useToken from '../Hooks/useToken';
 const Login = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -19,23 +20,24 @@ const Login = () => {
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
         auth
     );
-    const handlereset=()=>{
+    const handlereset = () => {
         sendPasswordResetEmail(email);
         toast("Reset Password email is sending")
     }
     const location = useLocation();
+    const [token]= useToken(user);
 
-    let from= location.state?.from?.pathname || "/"
+        let from = location.state?.from?.pathname || "/"
 
     let errorelement;
     if (error) {
         errorelement = error.message;
     }
     else if (loading || sending) {
-     return <Loading></Loading>
+        return <Loading></Loading>
     }
-    if(user){
-        navigate(from, {replace:true})
+    if (user && token) {
+        navigate(from, { replace: true })
     }
 
     const handlelogin = event => {
@@ -63,7 +65,7 @@ const Login = () => {
                 </Form>
             </div>
             <div>
-                <p>New User? <Button className='btn btn-danger'  onClick={newRegister}>Register Now</Button></p>
+                <p>New User? <Button className='btn btn-danger' onClick={newRegister}>Register Now</Button></p>
                 <p>Forget Password? <Button className='btn btn-danger' onClick={handlereset}> Reset Password</Button></p>
             </div>
             <p>{errorelement}</p>

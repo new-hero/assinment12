@@ -4,6 +4,8 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Button, Form} from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import useToken from '../Hooks/useToken';
+
 
 
 
@@ -22,6 +24,8 @@ const Register = () => {
         createUserWithEmailAndPassword(email, password)
     }
     const navigate= useNavigate();
+    const [token]= useToken(user);
+
 
     let errorelement;
     if (error) {
@@ -32,7 +36,7 @@ const Register = () => {
     }
 
     let from= location.state?.from?.pathname || "/"
-    if(user){
+    if(user && token){
         navigate(from, {replace:true})
     }
     const loginpage =()=>{

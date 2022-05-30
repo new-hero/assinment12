@@ -19,6 +19,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import Review from './Components/Reviews/Review';
 import Profile from './Components/Profile/Profile';
 import Myorder from './Components/Myorder/Myorder';
+import Allusers from './Components/Dashbord/Allusers';
+// import Managetool from './Components/Managetools/Managetool';
+import Managetools from './Components/Managetools/Managetools';
+import Managetool from './Components/Managetools/Managetool';
 
 
 
@@ -40,16 +44,24 @@ if(loading){
         <Route path='/tools' element={<Tools></Tools>}></Route>
         <Route path='/protfolio' element={<Protfolio></Protfolio>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
-        <Route path='/manage' element={<Tools></Tools>}></Route>
+        <Route path='/tools' element={<Tools></Tools>}></Route>
         <Route path='/' element={<Tools></Tools>}></Route>
       <Route path='/tools/:id' element={<Private>
           <Purchase></Purchase>
         </Private>}></Route>
+
+      <Route path='/manage' element={<Private>
+          <Managetools></Managetools>
+        </Private>}></Route>
+      <Route path='/manage/:id' element={<Private>
+         <Managetool></Managetool>
+        </Private>}></Route>
  
-        <Route path='/Dashbord' element={<Private>
+        <Route path='/dashbord' element={<Private>
           <Dashbord/></Private>}>
           <Route index element={<Profile></Profile>}></Route>
           <Route path='review' element={<Review></Review>}> </Route>
+          <Route path='/dashbord/allusers' element={<Allusers></Allusers>}> </Route>
           <Route path='order' element={<Myorder/>} > </Route>
         </Route> 
         <Route path='*' element={<Notfound></Notfound>}></Route>
