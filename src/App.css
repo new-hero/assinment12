@@ -40,3 +40,11 @@ ul li a{
   text-decoration: none;
   font-size: 20px;
 }
+div p{
+  font-size: 25px;
+}
+@media only screen and (max-width: 768px) {
+  .tool-grid{
+  grid-template-columns: repeat(1, 1fr);
+  }
+}

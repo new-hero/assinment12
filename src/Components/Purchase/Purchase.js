@@ -8,12 +8,11 @@ import Loading from '../Loading/Loading';
 
 
 const Purchase = () => {
-    const naviget=useNavigate();
+    const navigate=useNavigate();
     const {id}=useParams();
     const [tool, setTool] = useState({});
     useEffect(() => {
         const url = `http://localhost:5000/tools/${id}`;
-        console.log(tool)
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
@@ -50,9 +49,7 @@ const Purchase = () => {
         event.preventDefault();
     const purchaseUser= { userName, userEmail, address, phone, giveQantity, status: 'Pending' }
 
-
-        
-        fetch(`http://localhost:5000/tools/${id}`, {
+        fetch(`http://localhost:5000/orders`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -64,6 +61,7 @@ const Purchase = () => {
             toast('Success full Purchse')    
             })
             event.target.reset();
+            navigate('/')
             
 
             

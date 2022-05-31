@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div className='container'>
+        <div className='container text-start w-75 mx-auto'>
             <h2>How will you improve the performance of a React Application</h2>
             <p>Improve the performance of React Application by react component hooks like as react routers helps to make a single page application prevent browser reloading. use css framework like bootsrap , tailwind easily for responsive website use toast and many other service . react can make website easily  </p>
             <br/>
@@ -17,8 +17,7 @@ const Blogs = () => {
 
             </h2>
             <p>
-                
-              const products = productsArray.filter( product = > product.name.includes('text') )
+            use filter array method and use .includes('serachtext') for get name 
             
             </p>
         </div>

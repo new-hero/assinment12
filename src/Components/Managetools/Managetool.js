@@ -6,7 +6,7 @@ const Managetool = (props) => {
     const { id } = useParams();
     const [tool, setTool] = useState({});
     useEffect(() => {
-        const url = `https://localhost:5000/tools/${id}`;
+        const url = `http://localhost:5000/tools/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))

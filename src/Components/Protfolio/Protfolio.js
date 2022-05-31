@@ -1,15 +1,15 @@
 import React from 'react';
-// import my from '../../images/my.png'
+import my from '../../images/my.jpg'
 
 const Protfolio = () => {
     return (
         <div className='container text-start py-5'>
-            <h1 className='text-center py-5'>My Protfolio</h1>
-            <div className='row'>
-            <div className='col'>
-                {/* <img src={my} alt='my-img' className='img-fluid'/> */}
+            <h1 className='text-center py-3'>My Protfolio</h1>
+            <div className='row mx-auto '>
+            <div className='col-sm-6'>
+                <img src={my} alt='my-img' className='img-fluid'/>
             </div>
-            <div className='col'>
+            <div className='col-sm-6 mt-3 mt-lg-5'>
                 <h3>Name: Subrata Sarker.</h3>
                 <h3>Email: Tccdcc8@gmail.com.</h3>
                 <h3>Education: Diploma in Medical Technology.</h3>

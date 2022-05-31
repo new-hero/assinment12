@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Tool from '../Tool/Tool';
 import Managetool from './Managetool';
 
+// http://localhost:5000
 const Managetools = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
