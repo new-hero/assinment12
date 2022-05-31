@@ -5,7 +5,7 @@ import Managetool from './Managetool';
 const Managetools = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tools')
+        fetch('https://blooming-headland-33271.herokuapp.com/tools')
             .then(res => res.json())
             .then(data => setTools(data))
     }, [])

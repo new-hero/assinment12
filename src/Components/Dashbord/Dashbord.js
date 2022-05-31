@@ -8,7 +8,7 @@ const Dashbord = () => {
 
     const [alluser, setAlluser] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://blooming-headland-33271.herokuapp.com/users')
             .then(res => res.json())
             .then(data => setAlluser(data))
     }, [alluser])

@@ -13,7 +13,7 @@ const Userrow = ({ u }) => {
 
     const makeAdmin = () => {
        
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://blooming-headland-33271.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                'authorization': `${user.email}`

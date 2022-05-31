@@ -6,7 +6,7 @@ const Managetool = (props) => {
     const { id } = useParams();
     const [tool, setTool] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/tools/${id}`;
+        const url = `https://blooming-headland-33271.herokuapp.com/tools/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))

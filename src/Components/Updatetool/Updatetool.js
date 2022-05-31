@@ -10,7 +10,7 @@ const Updatetool = () => {
     const [tool, setTool] = useState({});
   
         useEffect(() => {
-            fetch('http://localhost:5000/tools')
+            fetch('https://blooming-headland-33271.herokuapp.com/tools')
                 .then(res => res.json())
                 .then(data => setTool(data))
         }, [])
@@ -22,7 +22,7 @@ const Updatetool = () => {
         const quantity = tool.quantity + addQuantity;
         const updateQuantityobj = {quantity}
         
-        fetch(`http://localhost:5000/tools/${id}`, {
+        fetch(`https://blooming-headland-33271.herokuapp.com/tools/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -45,7 +45,7 @@ const Updatetool = () => {
         const quantity = tool.quantity - delivaryquantity;
         const updateQuantityobj = {quantity}
         
-        fetch(`http://localhost:5000/tools/${id}`, {
+        fetch(`https://blooming-headland-33271.herokuapp.com/tools/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

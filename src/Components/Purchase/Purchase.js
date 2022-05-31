@@ -12,7 +12,7 @@ const Purchase = () => {
     const {id}=useParams();
     const [tool, setTool] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/tools/${id}`;
+        const url = `https://blooming-headland-33271.herokuapp.com/tools/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
@@ -49,7 +49,7 @@ const Purchase = () => {
         event.preventDefault();
     const purchaseUser= { userName, userEmail, address, phone, giveQantity, status: 'Pending' }
 
-        fetch(`http://localhost:5000/orders`, {
+        fetch(`https://blooming-headland-33271.herokuapp.com/orders`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
