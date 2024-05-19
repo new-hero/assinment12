@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Order from '../../Components/Order/Order'
 
-const Allorders = () => {
+const AllOrders = () => {
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch('https://blooming-headland-33271.herokuapp.com/orders')
+        fetch('https://assignment12server-lime.vercel.app/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -22,4 +22,4 @@ const Allorders = () => {
     );
 };
 
-export default Allorders;
+export default AllOrders;

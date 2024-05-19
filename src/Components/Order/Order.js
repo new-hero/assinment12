@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Order = (props) => {
-    const { userName, userEmail, address, phone, giveQantity, status }=props.order
+const Order = ({order}) => {
+    const { userName, userEmail, address, phone, giveQantity, status }=order
 
     
     return (

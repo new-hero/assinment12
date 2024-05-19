@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
-import Userrow from '../Userrow/Userrow';
+import UserRow from '../UserRow/UserRow';
 
-const Allusers = () => {
-    const [alluser, setAlluser] = useState([])
+const AllUsers = () => {
+    const [allUser, setAllUser] = useState([])
     useEffect(() => {
-        fetch('https://blooming-headland-33271.herokuapp.com/users')
+        fetch('https://assignment12server-lime.vercel.app/users')
             .then(res => res.json())
-            .then(data => setAlluser(data))
-    }, [alluser])
+            .then(data => setAllUser(data))
+    }, [allUser])
     return (
         <div>
           
@@ -25,10 +25,10 @@ const Allusers = () => {
 
                 <tbody>
                     {
-                        alluser.map(u=> <Userrow
+                        allUser.map(u=> <UserRow
                             key={u._id}
                             u={u}
-                            ></Userrow>)
+                            ></UserRow>)
                     }
                 </tbody>
             </Table>
@@ -36,4 +36,4 @@ const Allusers = () => {
     );
 };
 
-export default Allusers;
+export default AllUsers;

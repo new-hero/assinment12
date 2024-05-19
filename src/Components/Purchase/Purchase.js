@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Form, Toast } from 'react-bootstrap';
+import { Button, Form, } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -12,7 +12,7 @@ const Purchase = () => {
     const {id}=useParams();
     const [tool, setTool] = useState({});
     useEffect(() => {
-        const url = `https://blooming-headland-33271.herokuapp.com/tools/${id}`;
+        const url = `https://assignment12server-lime.vercel.app/tools/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTool(data))
@@ -21,14 +21,14 @@ const Purchase = () => {
     // const {_id, name, img, description, quantity, price } = tool;
 
 
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const userName=user?.displayName;
     const userEmail=user?.email;
     const [address, setAddress] = useState(' ');
     const [phone, setPhone] = useState(' ');
-    const [giveQantity, setGiveQuantity] = useState(" ");
+    const [giveQuantity, setGiveQuantity] = useState(" ");
 
-    if(giveQantity<0){
+    if(giveQuantity<0){
         alert("Negative value not accept");
         setGiveQuantity(" ")
         return;
@@ -41,15 +41,15 @@ const Purchase = () => {
     if (loading) {
         return <Loading></Loading>
     }
-    const availableQuantity = giveQantity <= tool.quantity;
+    const availableQuantity = giveQuantity <= tool.quantity;
 
 
 
     const handlePurchase = event => {
         event.preventDefault();
-    const purchaseUser= { userName, userEmail, address, phone, giveQantity, status: 'Pending' }
+    const purchaseUser= { userName, userEmail, address, phone, giveQuantity: giveQuantity, status: 'Pending' }
 
-        fetch(`https://blooming-headland-33271.herokuapp.com/orders`, {
+        fetch(`https://assignment12server-lime.vercel.app/orders`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -58,7 +58,7 @@ const Purchase = () => {
         })
             .then(res => res.json())
             .then(data => {
-            toast('Success full Purchse')    
+            toast('Successfully add to order list')    
             })
             event.target.reset();
             navigate('/')

@@ -10,10 +10,10 @@ const Updatetool = () => {
     const [tool, setTool] = useState({});
   
         useEffect(() => {
-            fetch('https://blooming-headland-33271.herokuapp.com/tools')
+            fetch(`https://assignment12server-lime.vercel.app/tools/${id}`)
                 .then(res => res.json())
                 .then(data => setTool(data))
-        }, [])
+        }, [id])
     
 
     const handleAdd = event => {
@@ -22,7 +22,7 @@ const Updatetool = () => {
         const quantity = tool.quantity + addQuantity;
         const updateQuantityobj = {quantity}
         
-        fetch(`https://blooming-headland-33271.herokuapp.com/tools/${id}`, {
+        fetch(`https://assignment12server-lime.vercel.app/tools/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -35,22 +35,20 @@ const Updatetool = () => {
                 event.target.reset();
             })
 
-
-        
     }
     
-    const handleDelivary = event => {
+    const handleDelivery = event => {
         event.preventDefault();
-        const delivaryquantity=parseInt(event.target.delivaryquantity.value);
-        const quantity = tool.quantity - delivaryquantity;
-        const updateQuantityobj = {quantity}
+        const deliveryQuantity=parseInt(event.target.delivaryquantity.value);
+        const quantity = tool.quantity - deliveryQuantity;
+        const updateQuantity = {quantity}
         
-        fetch(`https://blooming-headland-33271.herokuapp.com/tools/${id}`, {
+        fetch(`https://assignment12server-lime.vercel.app/tools/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updateQuantityobj)
+            body: JSON.stringify(updateQuantity)
         })
             .then(res => res.json())
             .then(data => {
@@ -70,7 +68,7 @@ const Updatetool = () => {
                 <h4>SupplierName: {supplierName}</h4>
             </div>
             <div className='d-flex mb-2'>
-                <form onSubmit={handleDelivary} className='w-50'>
+                <form onSubmit={handleDelivery} className='w-50'>
                     <input type='text' name='delivaryquantity' placeholder='Delivar Quantity' className=" text-center p-2 m-2"  required/>
                     <br />
                     <input type='submit' value='Delivery' className='w-50 btn btn-primary'  />

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 
-const Userrow = ({ u }) => {
+const UserRow = ({ u }) => {
     const { email, role } = u;
 
     const [user]=useAuthState(auth)
@@ -13,11 +13,11 @@ const Userrow = ({ u }) => {
 
     const makeAdmin = () => {
        
-        fetch(`https://blooming-headland-33271.herokuapp.com/user/admin/${email}`, {
+        fetch(`https://assignment12server-lime.vercel.app/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                'authorization': `${user.email}`
-            }
+            },
         })
             .then(res => res.json())
             .then(data => {
@@ -46,4 +46,4 @@ const Userrow = ({ u }) => {
     );
 };
 
-export default Userrow;
+export default UserRow;

@@ -24,6 +24,7 @@ import Allusers from './Components/Dashbord/Allusers';
 import Managetools from './Components/Managetools/Managetools';
 import Managetool from './Components/Managetools/Managetool';
 import Allorders from './Components/Allorders/Allorders';
+import AddTool from './Components/AddTool/AddTool';
 
 
 
@@ -49,9 +50,16 @@ function App() {
         <Route path='/tools/:id' element={<Private>
           <Purchase></Purchase>
         </Private>}></Route>
+
         <Route path='/manage' element={<Private>
           <Managetools></Managetools>
         </Private>}></Route>
+        
+
+        <Route path='/addTool' element={<Private>
+          <AddTool/>
+        </Private>}></Route>
+
         <Route path='/manage/:id' element={<Private>
           <Managetool></Managetool>
         </Private>}></Route>

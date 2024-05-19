@@ -5,10 +5,10 @@ import Managetool from './Managetool';
 const Managetools = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('https://blooming-headland-33271.herokuapp.com/tools')
+        fetch('https://assignment12server-lime.vercel.app/tools')
             .then(res => res.json())
             .then(data => setTools(data))
-    }, [])
+    }, [tools])
     return (
         <div className='container text-center py-5'>
             
